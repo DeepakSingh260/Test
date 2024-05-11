@@ -81,6 +81,8 @@ hr.RampBreak--l {
 
 .RampInputSelect--root {
   width: 100%;
+  top: 0;
+  position: sticky;
 }
 
 .RampInputSelect--input {
@@ -123,6 +125,7 @@ hr.RampBreak--l {
 
 .RampInputCheckbox--container {
   display: flex;
+  align-items: center;
 }
 
 .RampInputCheckbox--label {
@@ -150,7 +153,8 @@ hr.RampBreak--l {
 }
 
 .RampInputCheckbox--input {
-  display: none;
+   position: absolute;
+   opacity: 0;
 }
 
 .RampButton {
