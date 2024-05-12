@@ -25,10 +25,12 @@ export const Transactions: TransactionsComponent = ( {transactions, checklist, s
     <div data-testid="transaction-container">
       {transactions.map((transaction) => (
         <TransactionPane
-          key={transaction.id}
-          transaction={transaction}
-          loading={loading}
-          setTransactionApproval={setTransactionApproval}
+          key = {transaction.id}
+          transaction = {transaction}
+          loading = {loading}
+          setTransactionApproval = {setTransactionApproval}
+          checklist={checklist}
+          setChecklist={ setChecklist }
         />
       ))}
     </div>

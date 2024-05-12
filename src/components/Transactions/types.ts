@@ -6,14 +6,17 @@ export type SetTransactionApprovalFunction = (params: {
   newValue: boolean
 }) => Promise<void>
 
-type TransactionsProps = { transactions: Transaction[] | null, checklist: Record<string, boolean>; // Assuming checklist is a Record<string, boolean>
-setChecklist: Dispatch<SetStateAction<Record<string, boolean>>>;}
+type TransactionsProps = { transactions: Transaction[] | null, checklist: Record<string, boolean>, // Assuming checklist is a Record<string, boolean>
+setChecklist: Dispatch<SetStateAction<Record<string, boolean>>>}
 
 type TransactionPaneProps = {
-  transaction: Transaction
-  loading: boolean
-  approved?: boolean
-  setTransactionApproval: SetTransactionApprovalFunction
+  transaction: Transaction;
+  loading: boolean;
+  approved?: boolean;
+  setTransactionApproval: SetTransactionApprovalFunction;
+  checklist: Record<string, boolean>;
+  setChecklist: Dispatch<SetStateAction<Record<string, boolean>>>;
+
 }
 
 export type TransactionsComponent = FunctionComponent<TransactionsProps>

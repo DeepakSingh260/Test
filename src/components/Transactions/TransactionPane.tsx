@@ -6,8 +6,12 @@ export const TransactionPane: TransactionPaneComponent = ({
   transaction,
   loading,
   setTransactionApproval: consumerSetTransactionApproval,
+  checklist,
+  setChecklist
 }) => {
-  const [approved, setApproved] = useState(transaction.approved)
+  const isChecked = checklist[transaction.id];
+  const [approved, setApproved] = useState(isChecked? isChecked:transaction.approved)
+  
 
   return (
     <div className="RampPane">
@@ -30,6 +34,10 @@ export const TransactionPane: TransactionPaneComponent = ({
           })
 
           setApproved(newValue)
+          setChecklist(checklist => ({
+            ...checklist,
+            [transaction.id]: newValue
+          }));
         }}
       />
     </div>
