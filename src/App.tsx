@@ -12,6 +12,7 @@ export function App() {
   const { data: employees, ...employeeUtils } = useEmployees()
   const { data: paginatedTransactions, ...paginatedTransactionsUtils } = usePaginatedTransactions()
   const { data: transactionsByEmployee, ...transactionsByEmployeeUtils } = useTransactionsByEmployee()
+  const [ btnVisibel , setBtnVisible ] = useState(true);
   const [isLoading, setIsLoading] = useState(false)
 
   const transactions = useMemo(
@@ -66,6 +67,11 @@ export function App() {
             }
 
             await loadTransactionsByEmployee(newValue.id)
+            if( newValue.id !== "" ){
+              setBtnVisible( false )
+            }else{
+              setBtnVisible( true )
+            }
           }}
         />
 
@@ -74,17 +80,22 @@ export function App() {
         <div className="RampGrid">
           <Transactions transactions={transactions} />
 
-          {transactions !== null && (
-            <button
+          {transactions !== null  && btnVisibel && 
+
+          (
+            
+              
+              <button
               className="RampButton"
               disabled={paginatedTransactionsUtils.loading}
               onClick={async () => { 
                 await loadAllTransactions()
               }}
-            >
+              >
               View More
-            </button>
-          )}
+              </button>
+          
+            )}
         </div>
       </main>
     </Fragment>
