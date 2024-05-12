@@ -1,3 +1,5 @@
+import { Dispatch, SetStateAction } from "react";
+
 export type InputSelectItem = { label: string; value: string }
 
 export type InputSelectProps<TItem> = {
@@ -7,7 +9,7 @@ export type InputSelectProps<TItem> = {
   items: TItem[]
   parseItem: (item: TItem) => InputSelectItem
   isLoading?: boolean
-  loadingLabel: string
+  loadingLabel: string,
 }
 
 export type DropdownPosition = {

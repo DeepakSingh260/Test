@@ -14,6 +14,7 @@ export function App() {
   const { data: transactionsByEmployee, ...transactionsByEmployeeUtils } = useTransactionsByEmployee()
   const [ btnVisibel , setBtnVisible ] = useState(true);
   const [isLoading, setIsLoading] = useState(false)
+  const [checkboxStates, setCheckboxStates] = useState({});
 
   const transactions = useMemo(
     () => paginatedTransactions?.data ?? transactionsByEmployee ?? null,
@@ -73,12 +74,15 @@ export function App() {
               setBtnVisible( true )
             }
           }}
+
+          
         />
 
         <div className="RampBreak--l" />
 
         <div className="RampGrid">
-          <Transactions transactions={transactions} />
+        <Transactions transactions={transactions} checklist={checkboxStates} setChecklist={setCheckboxStates} />
+
 
           {transactions !== null  && btnVisibel && 
 
