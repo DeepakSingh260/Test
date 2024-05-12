@@ -78,7 +78,7 @@ export function App() {
             <button
               className="RampButton"
               disabled={paginatedTransactionsUtils.loading}
-              onClick={async () => {
+              onClick={async () => { 
                 await loadAllTransactions()
               }}
             >
